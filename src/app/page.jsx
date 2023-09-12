@@ -2,9 +2,6 @@
 
 import Image from 'next/image'
 import styles from './page.module.css'
-import { ThemeProvider } from "emotion-theming";
-import { theme, globalStyles } from "../components/stylesConfig";
-import { Global } from "@emotion/core";
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,38 +15,17 @@ import "swiper/css/navigation";
 import "swiper/css/bundle";
 import 'swiper/css/virtual';
 import Paginate from '@/components/Paginate';
-import Navbar from '@/components/NavBar';
+import Navbar from '@/components/Navbar';
+import { CAROUSEL_ITEMS } from '@/components/constants';
 
-//       <div className={styles.center}>
-//         <Image
-//           className={styles.logo}
-//           src="/next.svg"
-//           alt="Next.js Logo"
-//           width={180}
-//           height={37}
-//           priority
-//         />
-//       </div>
-
-const carouselItems = [
-  { url: 'https://swiperjs.com/demos/images/nature-1.jpg', title: 'Modern Kitchen Utensils'},
-  { url: 'https://swiperjs.com/demos/images/nature-2.jpg', title: 'Modern Kitchen Utensils'},
-  { url: 'https://swiperjs.com/demos/images/nature-3.jpg', title: 'Modern Kitchen Utensils'},
-  { url: 'https://swiperjs.com/demos/images/nature-4.jpg', title: 'Modern Kitchen Utensils'},
-  { url: 'https://swiperjs.com/demos/images/nature-5.jpg', title: 'Modern Kitchen Utensils'},
-  { url: 'https://swiperjs.com/demos/images/nature-6.jpg', title: 'Modern Kitchen Utensils'},
-  { url: 'https://swiperjs.com/demos/images/nature-7.jpg', title: 'Modern Kitchen Utensils'},
-  { url: 'https://swiperjs.com/demos/images/nature-8.jpg', title: 'Modern Kitchen Utensils'},
-]
-
-const MacBookPro162 = () => {
-
+const HomePage = () => {
   const [showCarousel, setShowCarousel] = useState(false);
   const sliderRef = useRef(null);
 
   useEffect(() => {
     setShowCarousel(true);
-  }, [])
+  }, []);
+
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
     sliderRef.current.swiper.slidePrev();
@@ -60,12 +36,8 @@ const MacBookPro162 = () => {
     sliderRef.current.swiper.slideNext();
   }, []);
 
-  
-
   return (
-    <ThemeProvider theme={theme}>
-      <Global styles={globalStyles} />
-      <div className={styles.macbookPro162}>
+      <div className={styles.container}>
         <Navbar />
         <div className={styles.featuredProductsParent}>
           <div className={styles.featuredProducts}>Featured Products</div>
@@ -99,14 +71,16 @@ const MacBookPro162 = () => {
             }}
             modules={[EffectCoverflow, Pagination, Navigation, Virtual]}
           >
-            {carouselItems.map((item, index) => {
+            {CAROUSEL_ITEMS.map((item, index) => {
               return (
                 <SwiperSlide style={{ backgroundPosition: 'center', backgroundSize: 'cover' }} virtualIndex={index} key={item.title + index}>
                   {({ isActive, isNext }) => (
                     <div style={{position: 'relative'}}>
-                      <img
-                        className={styles.frameChild1}
+                      <Image
+                        className={styles.frameChild}
                         alt=""
+                        width={807}
+                        height={567}
                         src={item.url}
                       />
                       {isActive ?(
@@ -128,8 +102,7 @@ const MacBookPro162 = () => {
           <Paginate handleNext={handleNext} handlePrev={handlePrev}/>
         </div>
       </div>
-    </ThemeProvider>
   );
 };
 
-export default MacBookPro162;
+export default HomePage;

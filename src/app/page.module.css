@@ -1,7 +1,7 @@
 .intersectIcon {
   position: absolute;
-  height: 54.63%;
-  width: 14.02%;
+  height: 23px;
+  width: 25px;
   top: 24.37%;
   right: 85.98%;
   bottom: 21%;
@@ -42,14 +42,6 @@
   flex-shrink: 0;
   display: none;
 }
-.tab13 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 2px;
-}
-
 .tabMore {
   display: flex;
   flex-direction: row;
@@ -58,10 +50,6 @@
   gap: 2px;
   position: 'relative';
 }
-.tab13 {
-  color: #83cef9;
-}
-
 .highlightTickIcon {
   position: relative;
   width: 20px;
@@ -112,11 +100,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-}
-.search {
   border-bottom: 1px solid #d4d4d4;
   padding: 12px 0;
-  /* gap: 12px; */
   color: #f6f6f6;
 }
 .rightTab {
@@ -128,7 +113,6 @@
   align-items: center;
   justify-content: flex-start;
 }
-.frameChild,
 .navigationBar {
   position: absolute;
   top: 0;
@@ -146,82 +130,8 @@
   gap: 80px;
   font-size: 32px;
 }
+
 .frameChild {
-  width: 324.29px;
-  height: 228.41px;
-  object-fit: cover;
-}
-.rectangleContainer,
-.rectangleWrapper {
-  /* position: absolute; */
-  /* top: -0.43px; */
-  /* left: 1374.88px; */
-  border-radius: 10.15px;
-  border: 0.4px solid #fff;
-  box-sizing: border-box;
-  /* width: 264.29px; */
-  /* height: 174.46px; */
-  overflow: hidden;
-}
-.rectangleContainer {
-  left: -0.43px;
-}
-.frameInner,
-.frameParent {
-  position: absolute;
-  top: 193.5px;
-  left: 44.25px;
-  width: 1638.75px;
-  height: 173.59px;
-}
-.frameInner {
-  top: 0;
-  left: 77.99px;
-  width: 444.76px;
-  height: 696.16px;
-  object-fit: cover;
-}
-.rectangleFrame {
-  position: absolute;
-  top: -0.69px;
-  left: 870.02px;
-  border-radius: 16.16px;
-  border: 0.7px solid #fff;
-  box-sizing: border-box;
-  width: 420.62px;
-  height: 277.65px;
-  overflow: hidden;
-}
-.rectangleIcon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 516.11px;
-  height: 363.52px;
-  object-fit: cover;
-}
-.frameDiv {
-  position: absolute;
-  top: -0.69px;
-  left: -0.69px;
-  border-radius: 16.16px;
-  border: 0.7px solid #fff;
-  box-sizing: border-box;
-  width: 420.62px;
-  height: 277.65px;
-  overflow: hidden;
-}
-/* .frameChild1, */
-.frameGroup {
-  position: absolute;
-  top: 142.16px;
-  left: 218.65px;
-  width: 1289.95px;
-  height: 276.27px;
-}
-.frameChild1 {
-  /* top: 0; */
-  /* left: 0; */
   width: 806.84px;
   height: 568.29px;
   border-radius: 20px;
@@ -247,8 +157,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.frameWrapper,
-.rectangleParent {
+.frameWrapper{
   position: absolute;
   box-sizing: border-box;
 }
@@ -265,26 +174,6 @@
   padding: 16px;
   align-items: center;
   justify-content: center;
-}
-.rectangleParent {
-  top: 18.92px;
-  left: calc(50% - 396.08px);
-  border-radius: 25.26px;
-  box-shadow: 0 9px 9px rgba(19, 101, 226, 0.2);
-  border: 1.1px solid #fff;
-  width: 791.15px;
-  height: 522.15px;
-  overflow: hidden;
-}
-.arrowRightIcon {
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-.arrowLeftIcon {
-  position: relative;
-  width: 24px;
-  height: 24px;
 }
 .dotIndictaorIcon {
   position: relative;
@@ -353,15 +242,14 @@
   line-height: 16px;
   text-transform: uppercase;
 }
-.content,
-.inputDropdownMenuItem {
+.content{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
 
-.inputDropdownMenuItem1 {
+.inputDropdownMenuItem {
   display: flex;
   flex-direction: row;
   cursor: pointer;
@@ -373,24 +261,18 @@
   box-sizing: border-box;
 }
 
-.inputDropdownMenuItem1:hover {
+.inputDropdownMenuItem:hover {
   background-color: #eee;
   gap: 8px;
   color: #231f20;
 }
 
-.inputDropdownMenuItem1:hover > img{
+.inputDropdownMenuItem:hover > img{
   display: flex
 }
 
 .content {
   flex: 1;
-}
-.inputDropdownMenuItem {
-  align-self: stretch;
-  height: 52px;
-  padding: 10px 14px;
-  box-sizing: border-box;
 }
 .menuItems,
 .permissionDropdown {
@@ -417,7 +299,7 @@
   overflow: hidden;
   flex-direction: row;
 }
-.macbookPro162 {
+.container {
   position: relative;
   background-color: #fff;
   width: 100%;

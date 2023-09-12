@@ -1,58 +1,84 @@
+import Image from 'next/image';
 import styles from '../app/page.module.css';
 
 const Paginate = ({ handleNext, handlePrev }) => {
   return (
     <div className={styles.slideIndicator}>
-      <img
+      <Image
         className={"leftIcon"}
+        width={24}
+        height={24}
         onClick={handlePrev}
         alt=""
         src="/arrow-left.svg"
       />
-      <img
+      <Image
         className={styles.dotIndictaorIcon}
+        width={12}
+        height={12}
         alt=""
-        src="/-dot-indictaor.svg"
+        src="/dot-indictaor.svg"
       />
-      <img
+      <Image
         className={styles.dotIndictaorIcon}
+        width={12}
+        height={12}
         alt=""
-        src="/-dot-indictaor1.svg"
+        src="/dot-indictaor-type-1.svg"
       />
-      <img
+      <Image
         className={styles.dotIndictaorIcon}
+        width={12}
+        height={12}
         alt=""
-        src="/-dot-indictaor1.svg"
+        src="/dot-indictaor-type-1.svg"
       />
-      <img
+      <Image
         className={styles.dotIndictaorIcon}
+        width={12}
+        height={12}
         alt=""
-        src="/-dot-indictaor1.svg"
+        src="/dot-indictaor-type-1.svg"
       />
       <div className={styles.dotIndictaor}>
         <div className={styles.dotIndicator} />
       </div>
-      <img
+      <Image
         className={styles.dotIndictaorIcon}
+        width={12}
+        height={12}
         alt=""
-        src="/-dot-indictaor1.svg"
+        src="/dot-indictaor-type-1.svg"
       />
-      <img
+      <Image
         className={styles.dotIndictaorIcon}
+        width={12}
+        height={12}
         alt=""
-        src="/-dot-indictaor1.svg"
+        src="/dot-indictaor-type-1.svg"
       />
-      <img
+      <Image
         className={styles.dotIndictaorIcon}
+        width={12}
+        height={12}
         alt=""
-        src="/-dot-indictaor1.svg"
+        src="/dot-indictaor-type-1.svg"
       />
-      <img
+      <Image
         className={styles.dotIndictaorIcon}
+        width={12}
+        height={12}
         alt=""
-        src="/-dot-indictaor1.svg"
+        src="/dot-indictaor-type-1.svg"
       />
-      <img className={"rightIcon"} onClick={handleNext} alt="" src="/arrow-right.svg" />
+      <Image 
+        className={"rightIcon"} 
+        width={24}
+        height={24} 
+        onClick={handleNext} 
+        alt="" 
+        src="/arrow-right.svg" 
+      />
     </div>
   )
 }
