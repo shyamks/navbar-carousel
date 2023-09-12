@@ -9,35 +9,35 @@ const Paginate = ({ handleNext, handlePrev }) => {
         width={24}
         height={24}
         onClick={handlePrev}
-        alt=""
+        alt="Left Arrow"
         src="/arrow-left.svg"
       />
       <Image
         className={styles.dotIndictaorIcon}
         width={12}
         height={12}
-        alt=""
+        alt="Dot indicator"
         src="/dot-indictaor.svg"
       />
       <Image
         className={styles.dotIndictaorIcon}
         width={12}
         height={12}
-        alt=""
+        alt="Dot indicator Type 1"
         src="/dot-indictaor-type-1.svg"
       />
       <Image
         className={styles.dotIndictaorIcon}
         width={12}
         height={12}
-        alt=""
+        alt="Dot indicator Type 1"
         src="/dot-indictaor-type-1.svg"
       />
       <Image
         className={styles.dotIndictaorIcon}
         width={12}
         height={12}
-        alt=""
+        alt="Dot indicator Type 1"
         src="/dot-indictaor-type-1.svg"
       />
       <div className={styles.dotIndictaor}>
@@ -47,28 +47,28 @@ const Paginate = ({ handleNext, handlePrev }) => {
         className={styles.dotIndictaorIcon}
         width={12}
         height={12}
-        alt=""
+        alt="Dot indicator Type 1"
         src="/dot-indictaor-type-1.svg"
       />
       <Image
         className={styles.dotIndictaorIcon}
         width={12}
         height={12}
-        alt=""
+        alt="Dot indicator Type 1"
         src="/dot-indictaor-type-1.svg"
       />
       <Image
         className={styles.dotIndictaorIcon}
         width={12}
         height={12}
-        alt=""
+        alt="Dot indicator Type 1"
         src="/dot-indictaor-type-1.svg"
       />
       <Image
         className={styles.dotIndictaorIcon}
         width={12}
         height={12}
-        alt=""
+        alt="Dot indicator Type 1"
         src="/dot-indictaor-type-1.svg"
       />
       <Image 
@@ -76,7 +76,7 @@ const Paginate = ({ handleNext, handlePrev }) => {
         width={24}
         height={24} 
         onClick={handleNext} 
-        alt="" 
+        alt="Right Arrow" 
         src="/arrow-right.svg" 
       />
     </div>

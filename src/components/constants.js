@@ -10,3 +10,15 @@ export const CAROUSEL_ITEMS = [
   { url: 'https://swiperjs.com/demos/images/nature-7.jpg', title: 'Modern Kitchen Utensils'},
   { url: 'https://swiperjs.com/demos/images/nature-8.jpg', title: 'Modern Kitchen Utensils'},
 ]
+
+export const CAROUSEL_EFFECT = 'coverflow'
+
+export const CAROUSEL_EFFECT_CONFIG = {
+  rotate: 0,
+  stretch: 0,
+  depth: 300,
+  modifier: 1,
+  slideShadows: false
+};
+
+export const ECOMM = "E-COMM";

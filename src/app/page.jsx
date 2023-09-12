@@ -16,7 +16,7 @@ import "swiper/css/bundle";
 import 'swiper/css/virtual';
 import Paginate from '@/components/Paginate';
 import Navbar from '@/components/Navbar';
-import { CAROUSEL_ITEMS } from '@/components/constants';
+import { CAROUSEL_EFFECT, CAROUSEL_EFFECT_CONFIG, CAROUSEL_ITEMS } from '@/components/constants';
 
 const HomePage = () => {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -47,7 +47,7 @@ const HomePage = () => {
         </div>
         <div className={styles.groupParent}>
           <Swiper
-            effect={"coverflow"}
+            effect={CAROUSEL_EFFECT}
             ref={sliderRef}
             grabCursor={true}
             speed={800}
@@ -62,23 +62,17 @@ const HomePage = () => {
             }}
             slidesPerView={3}
             width={1600}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 300,
-              modifier: 1,
-              slideShadows: false
-            }}
+            coverflowEffect={CAROUSEL_EFFECT_CONFIG}
             modules={[EffectCoverflow, Pagination, Navigation, Virtual]}
           >
             {CAROUSEL_ITEMS.map((item, index) => {
               return (
                 <SwiperSlide style={{ backgroundPosition: 'center', backgroundSize: 'cover' }} virtualIndex={index} key={item.title + index}>
-                  {({ isActive, isNext }) => (
+                  {({ isActive }) => (
                     <div style={{position: 'relative'}}>
                       <Image
                         className={styles.frameChild}
-                        alt=""
+                        alt={`Carousel item number ${index+1}`}
                         width={807}
                         height={567}
                         src={item.url}

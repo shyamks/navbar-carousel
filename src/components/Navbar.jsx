@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from '../app/page.module.css';
 import { useClickAway } from '@uidotdev/usehooks';
-import { TAB_NAMES } from './constants';
+import { ECOMM, TAB_NAMES } from './constants';
 import Image from 'next/image';
 
 const Navbar = () => {
@@ -45,8 +45,8 @@ const Navbar = () => {
   return (
     <div className={styles.navigationBar} ref={elementRef}>
       <div className={styles.logo}>
-        <Image className={styles.intersectIcon} width={25} height={23} alt="" src="/intersect.svg" />
-        <div className={styles.eComm}>{'E-COMM'}</div>
+        <Image className={styles.intersectIcon} width={25} height={23} alt="E-comm logo" src="/intersect.svg" />
+        <div className={styles.eComm}>{ECOMM}</div>
       </div>
       <div className={styles.rightTab}>
         <div className={styles.rightTab}>
@@ -56,7 +56,7 @@ const Navbar = () => {
                 <b className={styles.tabName}>{tabName}</b>
                 <Image
                   className={styles.chevronDownIcon}
-                  alt=""
+                  alt="Chevron Down Icon"
                   width={20} height={20}
                   src="/chevrondown.svg"
                 />
@@ -68,7 +68,7 @@ const Navbar = () => {
               <Image
                 {...moreProps}
                 className={styles.moreIcon}
-                alt=""
+                alt="Chevron Down"
                 width={20} height={20}
                 src="/chevrondown1.svg"
               />
@@ -81,7 +81,7 @@ const Navbar = () => {
                         <div className={styles.content}>
                           <div className={styles.text}>{tabName}</div>
                         </div>
-                        <Image className={styles.highlightTickIcon} width={20} height={20} alt="" src="/check.svg" />
+                        <Image className={styles.highlightTickIcon} width={20} height={20} alt="Check" src="/check.svg" />
                       </div>
                     )
                   })}
