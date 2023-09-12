@@ -28,8 +28,10 @@
 .logo {
   min-width: 180px;
   height: 42px;
+  cursor: pointer;
 }
 .tabName {
+  cursor: pointer;
   line-height: 20px;
 }
 .chevronDownIcon {
@@ -59,7 +61,8 @@
 .tab13 {
   color: #83cef9;
 }
-.searchIcon {
+
+.highlightTickIcon {
   position: relative;
   width: 20px;
   height: 20px;
@@ -68,11 +71,21 @@
   display: none;
 }
 
+.searchIcon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: block;
+}
+
 .moreIcon {
   position: relative;
   width: 20px;
   height: 20px;
   overflow: hidden;
+  cursor: pointer;
   flex-shrink: 0;
 }
 
@@ -80,6 +93,16 @@
   position: relative;
   line-height: 20px;
   font-weight: 500;
+
+  background-color: #2f302c;
+  width: 100%;
+  /* border: 3px solid #00B4CC; */
+  border: none;
+  padding: 5px;
+  height: 20px;
+  /* border-radius: 5px 0 0 5px; */
+  outline: none;
+  color: #9DBFAF;
 }
 .search {
   flex: 1;
@@ -93,7 +116,7 @@
 .search {
   border-bottom: 1px solid #d4d4d4;
   padding: 12px 0;
-  gap: 12px;
+  /* gap: 12px; */
   color: #f6f6f6;
 }
 .rightTab {
@@ -188,7 +211,7 @@
   height: 277.65px;
   overflow: hidden;
 }
-.frameChild1,
+/* .frameChild1, */
 .frameGroup {
   position: absolute;
   top: 142.16px;
@@ -197,10 +220,11 @@
   height: 276.27px;
 }
 .frameChild1 {
-  top: 0;
-  left: 0;
+  /* top: 0; */
+  /* left: 0; */
   width: 806.84px;
   height: 568.29px;
+  border-radius: 20px;
   object-fit: cover;
 }
 .modernKitchenUtensils {
@@ -229,12 +253,14 @@
   box-sizing: border-box;
 }
 .frameWrapper {
-  top: 469px;
-  left: 0.38px;
+  top: 516px;
+  /* left: 0.38px; */
   background-color: rgba(35, 31, 32, 0.5);
-  width: 790px;
+  width: 806.8px;
   height: 52px;
   display: flex;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   flex-direction: column;
   padding: 16px;
   align-items: center;
@@ -251,6 +277,11 @@
   overflow: hidden;
 }
 .arrowRightIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.arrowLeftIcon {
   position: relative;
   width: 24px;
   height: 24px;
@@ -278,22 +309,16 @@
   height: 12px;
 }
 .slideIndicator {
-  position: absolute;
-  top: 642px;
-  left: calc(50% + 155.63px);
   display: flex;
   flex-direction: row;
   padding: 8px;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 12px;
-  transform: rotate(-180deg);
-  transform-origin: 0 0;
 }
 .groupParent {
   position: absolute;
   top: 420px;
-  left: 0;
   width: 100%;
   height: 532px;
   text-align: center;
@@ -339,6 +364,7 @@
 .inputDropdownMenuItem1 {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
   align-items: center;
   justify-content: flex-start;
   align-self: stretch;

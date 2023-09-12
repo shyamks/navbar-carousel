@@ -18,8 +18,8 @@
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react-dom": "^18.2.0",
     "react-id-swiper": "^4.0.0",
-    "swiper": "4.5.0"
+    "swiper": "10.0.0"
   }
 }

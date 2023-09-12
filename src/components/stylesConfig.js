@@ -11,6 +11,18 @@ export const colors = {
 export const swiperStyle = css`
   /* stylelint-disable */
 
+  .rightIcon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  .leftIcon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
   .swiper-container {
     margin: 0 auto;
     position: relative;
@@ -54,12 +66,11 @@ export const swiperStyle = css`
   }
 
   .swiper-slide {
-    flex-shrink: 0;
     width: 100%;
     height: 100%;
     position: relative;
-    transition-property: transform;
-    margin-right: -40px;
+    width: 480px !important;
+    background-position: center !important;
   }
 
   .swiper-slide-invisible-blank {
@@ -86,7 +97,6 @@ export const swiperStyle = css`
     
     .swiper-wrapper{
       transform-style: preserve-3d;
-      // margin-left: -125px;
     }
     .swiper-slide,
     .swiper-slide-shadow-left,

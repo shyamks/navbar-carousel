@@ -21,9 +21,7 @@ const Slider= ({
 
   console.log(data, 'data');
   return (
-    // <SlideContainer {...styles} id={id}>
       <Swiper {...params}>{data.map(renderSlide)}</Swiper>
-    // </SlideContainer>
   );
 };
 

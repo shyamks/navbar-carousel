@@ -2,14 +2,23 @@
 
 import Image from 'next/image'
 import styles from './page.module.css'
-import Slider from '@/components/Slider';
-import { useClickAway } from "@uidotdev/usehooks";
 import { ThemeProvider } from "emotion-theming";
 import { theme, globalStyles } from "../components/stylesConfig";
 import { Global } from "@emotion/core";
-import { useEffect, useRef, useState } from 'react';
-// import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination, Virtual, Navigation } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/bundle";
+import 'swiper/css/virtual';
+import Paginate from '@/components/Paginate';
+import Navbar from '@/components/NavBar';
 
 //       <div className={styles.center}>
 //         <Image
@@ -22,101 +31,42 @@ import { useEffect, useRef, useState } from 'react';
 //         />
 //       </div>
 
-
-const tabNames = ['HOME', 'ELECTRONICS', "BOOKS", 'MUSIC', 'MOVIES', 'CLOTHING', 'GAMES', 'FURNITURE', 'ELECTRONICS', 'TRAVEL', 'BOTANICAL'];
+const carouselItems = [
+  { url: 'https://swiperjs.com/demos/images/nature-1.jpg', title: 'Modern Kitchen Utensils'},
+  { url: 'https://swiperjs.com/demos/images/nature-2.jpg', title: 'Modern Kitchen Utensils'},
+  { url: 'https://swiperjs.com/demos/images/nature-3.jpg', title: 'Modern Kitchen Utensils'},
+  { url: 'https://swiperjs.com/demos/images/nature-4.jpg', title: 'Modern Kitchen Utensils'},
+  { url: 'https://swiperjs.com/demos/images/nature-5.jpg', title: 'Modern Kitchen Utensils'},
+  { url: 'https://swiperjs.com/demos/images/nature-6.jpg', title: 'Modern Kitchen Utensils'},
+  { url: 'https://swiperjs.com/demos/images/nature-7.jpg', title: 'Modern Kitchen Utensils'},
+  { url: 'https://swiperjs.com/demos/images/nature-8.jpg', title: 'Modern Kitchen Utensils'},
+]
 
 const MacBookPro162 = () => {
 
-  const [showNumberOfNavBarItems, setShowNumberOfNavBarItems] = useState(7);
-  const [show, setShow] = useState(false);
-  const elementRef = useRef(null);
+  const [showCarousel, setShowCarousel] = useState(false);
+  const sliderRef = useRef(null);
+
   useEffect(() => {
-    const element = elementRef?.current;
-
-    if (!element) return;
-
-    const observer = new ResizeObserver((entries) => {
-      const navBarWidth = parseInt((entries[0].contentRect.width - 128 - 180 - 300));
-      setShowNumberOfNavBarItems(parseInt(navBarWidth/ 120) - 1)
-    });
-
-    observer.observe(element);
-    return () => {
-      observer.disconnect();
-    };
+    setShowCarousel(true);
   }, [])
+  const handlePrev = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slidePrev();
+  }, []);
 
-  const switchMore = () => {
-    setShow(!show);
-  }
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current.swiper.slideNext();
+  }, []);
 
-  const dropDownRef = useClickAway((e) => {
-    setShow(false);
-  });
+  
 
-  const finalTabNameShowing = tabNames.slice(0, showNumberOfNavBarItems + 1);
-  const moreTabNames = tabNames.slice(showNumberOfNavBarItems + 1);
-  const moreProps = !show ? {
-    onClick: () => {
-      switchMore();
-    },
-  } : {};
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />
       <div className={styles.macbookPro162}>
-        <div className={styles.navigationBar} ref={elementRef}>
-          <div className={styles.logo}>
-            <img className={styles.intersectIcon} alt="" src="/intersect.svg" />
-            <div className={styles.eComm}>E-COMM</div>
-          </div>
-          <div className={styles.rightTab}>
-            <div className={styles.rightTab}>
-              {finalTabNameShowing.map((tabName) => {
-                return (
-                  <div className={styles.tab1} key={tabName}>
-                    <b className={styles.tabName}>{tabName}</b>
-                    <img
-                      className={styles.chevronDownIcon}
-                      alt=""
-                      src="/chevrondown.svg"
-                    />
-                  </div>
-                );
-              })}
-                <div className={styles.tabMore} key={'MORE'}>
-                  <b className={styles.tabName} {...moreProps}>MORE</b>
-                  <img
-                    {...moreProps}
-                    className={styles.moreIcon}
-                    alt=""
-                    src="/chevrondown1.svg"
-                  />
-                  {show ? (
-                  <div ref={dropDownRef} className={styles.permissionDropdown}>
-                    <div className={styles.menuItems}>
-                      {moreTabNames.map(tabName => {
-                        return (
-                          <div className={styles.inputDropdownMenuItem1}>
-                            <div className={styles.content}>
-                              <div className={styles.text}>{tabName}</div>
-                            </div>
-                            <img className={styles.searchIcon} alt="" src="/check.svg" />
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-                  ) : null}
-                </div>
-                
-            </div>
-            <div className={styles.search}>
-              <img className={styles.searchIcon} alt="" src="/search.svg" />
-              <div className={styles.searchSomething}>Search something</div>
-            </div>
-          </div>
-        </div>
+        <Navbar />
         <div className={styles.featuredProductsParent}>
           <div className={styles.featuredProducts}>Featured Products</div>
           <div className={styles.exploreAndDiscover}>
@@ -124,49 +74,58 @@ const MacBookPro162 = () => {
           </div>
         </div>
         <div className={styles.groupParent}>
-          <Slider
-            params={{
-              effect: "coverflow",
-              loop: true,
-              centeredSlides: true,
-              slidesPerView: 3,
-              // modules:[EffectCoverflow],
-              // initialSlide: 3,
-              // slideActiveClass: "swiper-slide-active",
-              // preventClicks: true,
-              // preventClicksPropagation: true,
-              // slideToClickedSlide: true,
-              grabCursor: true,
-              coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 3,
-                slideShadows: false
-              },
-              // breakpoints: {
-              //   // when window width is <= 320px
-              //   320: {
-              //     slidesPerView: 3,
-              //     spaceBetween: 10
-              //   },
-              //   // when window width is <= 480px
-              //   480: {
-              //     slidesPerView: 3,
-              //     spaceBetween: 10
-              //   },
-              //   // when window width is <= 640px
-              //   640: {
-              //     slidesPerView: 3,
-              //     spaceBetween: 10
-              //   },
-              //   1920: {
-              //     slidesPerView: 3,
-              //     spaceBetween: 10
-              //   }
-              // }
+          <Swiper
+            effect={"coverflow"}
+            ref={sliderRef}
+            grabCursor={true}
+            speed={800}
+            centeredSlides={true}
+            init={false}
+            loop={true}
+            parallax={true}
+            style={showCarousel ? { visibility: 'visible' } : { visibility: 'hidden' }}
+            navigation={{
+              nextEl: "rightIcon",
+              prevEl: "leftIcon",
             }}
-          />
+            slidesPerView={3}
+            width={1600}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 300,
+              modifier: 1,
+              slideShadows: false
+            }}
+            modules={[EffectCoverflow, Pagination, Navigation, Virtual]}
+          >
+            {carouselItems.map((item, index) => {
+              return (
+                <SwiperSlide style={{ backgroundPosition: 'center', backgroundSize: 'cover' }} virtualIndex={index} key={item.title + index}>
+                  {({ isActive, isNext }) => (
+                    <div style={{position: 'relative'}}>
+                      <img
+                        className={styles.frameChild1}
+                        alt=""
+                        src={item.url}
+                      />
+                      {isActive ?(
+                      <div className={styles.frameWrapper}>
+                        <div className={styles.frameContainer}>
+                          <div className={styles.modernKitchenUtensilsWrapper}>
+                            <div className={styles.modernKitchenUtensils}>
+                              {item.title}
+                            </div>
+                          </div>
+                        </div>
+                      </div>) : null}
+                    </div>
+                  )}
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+          <Paginate handleNext={handleNext} handlePrev={handlePrev}/>
         </div>
       </div>
     </ThemeProvider>
